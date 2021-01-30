@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -31,7 +32,7 @@ func (e Excel) addSheetFromFile(filename string) {
 }
 
 // AddSheetsFromDir gets a folder path
-func (e Excel) addSheetsFromDir(root string) error {
+func (e Excel) addSheetsFromDir(root string, printFilename bool) error {
 	var files []string
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() {
@@ -51,9 +52,13 @@ func (e Excel) addSheetsFromDir(root string) error {
 	}
 
 	for _, file := range files {
-		s := newSheet(file)
-		s.load()
-		e.addSheet(s)
+		// s := newSheet(file)
+		// s.load()
+		// e.addSheet(s)
+
+		if printFilename == true {
+			fmt.Println(file)
+		}
 	}
 
 	return nil
