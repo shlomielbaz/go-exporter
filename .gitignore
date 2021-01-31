@@ -5,6 +5,10 @@
 *.so
 *.dylib
 
+# ignore csvs and excel files
+*.csv
+*.xlsx
+
 # Test binary, built with `go test -c`
 *.test
 
