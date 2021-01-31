@@ -75,6 +75,7 @@ func (e Excel) addSheetsFromDir(root string, printFilename bool) error {
 	return nil
 }
 
+// export excel data into file
 func (e Excel) export(filename string) error {
 	f := excelize.NewFile()
 	f.Path = filename
