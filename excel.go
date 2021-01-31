@@ -78,6 +78,7 @@ func (e Excel) addSheetsFromDir(root string, printFilename bool) error {
 func (e Excel) export(filename string) error {
 	f := excelize.NewFile()
 	f.Path = filename
+	// Walk through the sheets collection and parse them into the excel file and save it in the end
 	f.Save()
 
 	// table, err := queries.NewLocalizationTableMetadata(e.Connection).Get()
