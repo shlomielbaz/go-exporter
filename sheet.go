@@ -27,6 +27,7 @@ func (s Sheet) addRow(r Row) {
 	*s.rows = append(*s.rows, r)
 }
 
+// lazy loading rows
 func (s Sheet) load() {
 
 	csvfile, err := os.Open(s.filename)

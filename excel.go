@@ -20,14 +20,25 @@ func newExcel() Excel {
 	return e
 }
 
+// add sheet to excel sheets collection
 func (e Excel) addSheet(s Sheet) {
 	*e.sheets = append(*e.sheets, s)
+}
+
+// lazy loading sheets
+func (e Excel) load(printFilename bool) {
+	for _, s := range *e.sheets {
+		if printFilename {
+			fmt.Println("filename: ", s.filename)
+		}
+		s.load()
+	}
 }
 
 // addSheetFromFile
 func (e Excel) addSheetFromFile(filename string) {
 	s := newSheet(filename)
-	s.load()
+	// s.load()
 	e.addSheet(s)
 }
 
@@ -52,9 +63,9 @@ func (e Excel) addSheetsFromDir(root string, printFilename bool) error {
 	}
 
 	for _, file := range files {
-		// s := newSheet(file)
+		s := newSheet(file)
 		// s.load()
-		// e.addSheet(s)
+		e.addSheet(s)
 
 		if printFilename == true {
 			fmt.Println(file)
