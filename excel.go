@@ -45,6 +45,7 @@ func (e Excel) addSheetFromFile(filename string) {
 // AddSheetsFromDir gets a folder path
 func (e Excel) addSheetsFromDir(root string, printFilename bool) error {
 	var files []string
+
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if info.IsDir() {
 			return nil
