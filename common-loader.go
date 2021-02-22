@@ -2,7 +2,9 @@ package main
 
 import "fmt"
 
-type commonLoader struct{}
+type commonLoader struct {
+	buffer []byte
+}
 
 func (commonLoader) load(r IReader) {
 
