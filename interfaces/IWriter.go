@@ -1,4 +1,4 @@
-package interfaces
+package main
 
 // comment
 type IWriter interface {
