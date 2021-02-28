@@ -1,15 +1,22 @@
 package main
 
-import "fmt"
-
-type commonLoader struct {
+// CommonLoader is ...
+type CommonLoader struct {
 	buffer []byte
 }
 
-func (commonLoader) load(r IReader) {
+func (c CommonLoader) load(r IReader) []byte {
 
-	buf := r.Read()
+	c.buffer = r.Read()
 
-	fmt.Println(string(buf))
+	return c.buffer
 
+}
+
+func (c CommonLoader) read(r IReader) []byte {
+	return r.Read()
+}
+
+func (c CommonLoader) write(w IWriter, buf []byte) {
+	w.Write(buf)
 }

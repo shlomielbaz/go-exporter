@@ -1,13 +1,19 @@
 package main
 
 func main() {
-	loader := new(commonLoader)
+	loader := new(CommonLoader)
+	ew := new(CSVWriter)
 
-	fr := new(fileReader)
-	ar := new(apiReader)
+	fn := "../localization/BI MSW.BANK.de-de.csv"
+	fr := newFileReader(fn)
 
-	loader.load(fr)
-	loader.load(ar)
+	//ar := newAPIReader("ACHLA URL")
+
+	// bf := loader.load(fr)
+	buff := loader.load(fr)
+	//loader.load(ar)
+
+	loader.write(ew, buff)
 
 	// e := newExcel()
 	// e.addSheetFromFile("../localization/BI MSW.BANK.de-de.csv")

@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-// CSV represent CSV file
+// Sheet is ...
 type Sheet struct {
 	rows     *[]Row
 	filename string
