@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+
+	"github.com/360EntSecGroup-Skylar/excelize"
+)
 
 // ExcelWriter is ...
 type ExcelWriter struct {
@@ -10,18 +16,6 @@ func (ar ExcelWriter) Write(buff []byte) {
 
 	fmt.Println(string(buff))
 }
-
-
-
-package main
-
-import (
-	"fmt"
-	"os"
-	"path/filepath"
-
-	"github.com/360EntSecGroup-Skylar/excelize"
-)
 
 // Excel represents excel file
 type Excel struct {
